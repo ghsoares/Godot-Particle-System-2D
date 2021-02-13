@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/ParticleSystem2D/scripts/editor/ParticleModulesContextMenu.cs" type="Script" id=1]
+
+[node name="ModulesContextMenu" type="Panel"]
+margin_right = 256.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 256, 256 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Container"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 249.0
+margin_bottom = 249.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close" type="Button" parent="Container/VBox"]
+margin_right = 47.0
+margin_bottom = 20.0
+size_flags_horizontal = 0
+text = "Close"
+
+[node name="Scroll" type="ScrollContainer" parent="Container/VBox"]
+margin_top = 24.0
+margin_right = 242.0
+margin_bottom = 242.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="Container/VBox/Scroll"]
+margin_right = 242.0
+margin_bottom = 218.0
+size_flags_horizontal = 3
+size_flags_vertical = 3

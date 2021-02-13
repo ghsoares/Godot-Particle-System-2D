@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/ParticleSystem2D/scripts/editor/RandomNumberEditor.cs" type="Script" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+
+[node name="RandomNumberEditor" type="HBoxContainer"]
+margin_right = 254.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+step = 0.1
+mode = 1
+
+[node name="Constant" type="SpinBox" parent="."]
+visible = false
+margin_right = 300.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+step = 0.1
+
+[node name="Random" type="HBoxContainer" parent="."]
+margin_right = 230.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Random"]
+margin_top = 5.0
+margin_right = 28.0
+margin_bottom = 19.0
+text = "Min:"
+
+[node name="Min" type="SpinBox" parent="Random"]
+margin_left = 32.0
+margin_right = 106.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+step = 0.1
+
+[node name="Separator" type="Control" parent="Random"]
+margin_left = 110.0
+margin_right = 118.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 8, 0 )
+
+[node name="Label2" type="Label" parent="Random"]
+margin_left = 122.0
+margin_top = 5.0
+margin_right = 152.0
+margin_bottom = 19.0
+text = "Max:"
+
+[node name="Max" type="SpinBox" parent="Random"]
+margin_left = 156.0
+margin_right = 230.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+step = 0.1
+
+[node name="Mode" type="OptionButton" parent="."]
+margin_left = 234.0
+margin_right = 254.0
+margin_bottom = 24.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
+text = "Random"
+flat = true
+items = [ "Constant", null, false, 0, null, "Random", null, false, 1, null ]
+selected = 1

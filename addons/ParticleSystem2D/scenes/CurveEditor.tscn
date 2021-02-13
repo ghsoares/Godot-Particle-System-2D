@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/ParticleSystem2D/scripts/editor/CurveEditor.cs" type="Script" id=1]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0 ), 0.0, -0.01227, 0, 0, Vector2( 1, 1 ), -0.0129124, 0.0, 0, 0 ]
+
+[node name="CurveEditor" type="Panel"]
+margin_top = 1.0
+margin_right = 200.0
+margin_bottom = 97.0
+rect_min_size = Vector2( 200, 96 )
+rect_clip_content = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+curve = SubResource( 1 )

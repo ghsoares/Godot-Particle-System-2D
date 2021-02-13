@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/ParticleSystem2D/scripts/editor/ParticleModuleInterface.cs" type="Script" id=1]
+[ext_resource path="res://addons/ParticleSystem2D/icons/OrderUp.png" type="Texture" id=2]
+[ext_resource path="res://addons/ParticleSystem2D/icons/OrderDown.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="Control" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -564.0
+size_flags_horizontal = 3
+custom_constants/separation = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Top" type="Button" parent="."]
+margin_right = 1024.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="HBox" type="HBoxContainer" parent="Top"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enabled" type="CheckBox" parent="Top/HBox"]
+margin_right = 16.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+size_flags_horizontal = 0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/hover_pressed = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+
+[node name="ModuleName" type="Label" parent="Top/HBox"]
+margin_left = 24.0
+margin_top = 3.0
+margin_right = 936.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Something"
+valign = 1
+
+[node name="Order" type="VBoxContainer" parent="Top/HBox"]
+margin_left = 944.0
+margin_right = 952.0
+margin_bottom = 20.0
+custom_constants/separation = 0
+
+[node name="Up" type="TextureButton" parent="Top/HBox/Order"]
+margin_right = 8.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 8, 8 )
+size_flags_vertical = 3
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="Down" type="TextureButton" parent="Top/HBox/Order"]
+margin_top = 10.0
+margin_right = 8.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 8, 8 )
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Remove" type="Button" parent="Top/HBox"]
+margin_left = 960.0
+margin_right = 1024.0
+margin_bottom = 20.0
+text = "Remove"
+
+[node name="Contents" type="PanelContainer" parent="."]
+margin_top = 22.0
+margin_right = 1024.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+
+[node name="List" type="VBoxContainer" parent="Contents"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 7.0
+
+[node name="Disabled" type="Control" parent="Contents"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 7.0

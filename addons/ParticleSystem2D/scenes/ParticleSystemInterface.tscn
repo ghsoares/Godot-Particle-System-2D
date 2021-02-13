@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/ParticleSystem2D/scripts/editor/ParticleSystemInterface.cs" type="Script" id=2]
+
+[node name="Particle System 2D" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -724.0
+rect_min_size = Vector2( 250, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 293.0
+margin_bottom = 593.0
+
+[node name="VBox" type="VBoxContainer" parent="Scroll"]
+margin_right = 286.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+custom_constants/separation = 8
+
+[node name="ModuleList" type="VBoxContainer" parent="Scroll/VBox"]
+margin_right = 286.0
+size_flags_horizontal = 3
+custom_constants/separation = 8
+
+[node name="AddModule" type="Button" parent="Scroll/VBox"]
+margin_top = 8.0
+margin_right = 131.0
+margin_bottom = 28.0
+size_flags_horizontal = 0
+text = "Add a new module"
+
+[node name="NoParticleSystem" type="Control" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 293.0
+margin_bottom = 593.0
+
+[node name="Message" type="Label" parent="NoParticleSystem"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -20.0
+margin_bottom = 20.0
+text = "Select a Particle System 2D
+to start editing"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContextMenus" type="Control" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 293.0
+margin_bottom = 593.0
+mouse_filter = 2

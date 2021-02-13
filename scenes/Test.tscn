@@ -1,0 +1,248 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://addons/ParticleSystem2D/scripts/nodes/ParticleSystem2D.cs" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float threshold = 1f;
+
+void fragment() {
+	if (UV.x > 1f || UV.y > 1f) discard;
+	
+	float d = distance(UV, vec2(.5f)) / .5f;
+	COLOR.a *= step(d, threshold);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/threshold = 1.0
+
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0.121479, 1 )
+colors = PoolColorArray( 0.992188, 0.987343, 0.987343, 1, 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=11]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0285714, 1, 0, Vector2( 0.245739, 0.482639 ), 0.0, 0.0, 0, 0, Vector2( 0.844008, 1 ), -0.00925926, -0.00925926, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.188596, 1 )
+colors = PoolColorArray( 0.992188, 0.987343, 0.987343, 1, 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0285714, 1, 0, Vector2( 0.245739, 0.482639 ), 0.0, 0.0, 0, 0, Vector2( 0.844008, 1 ), -0.00925926, -0.00925926, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=12]
+offsets = PoolRealArray( 0.188596, 1 )
+colors = PoolColorArray( 0.992188, 0.987343, 0.987343, 1, 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=13]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0285714, 1, 0, Vector2( 0.245739, 0.482639 ), 0.0, 0.0, 0, 0, Vector2( 0.844008, 1 ), -0.00925926, -0.00925926, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="RectangleShape2D" id=9]
+
+[node name="Test" type="Node2D"]
+
+[node name="Spr1" type="Sprite" parent="."]
+position = Vector2( 198.56, 145.489 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+
+[node name="ParticleSystem2D" type="Node2D" parent="Spr1"]
+material = SubResource( 2 )
+script = ExtResource( 1 )
+seed = 668807782
+emitting = true
+gravity = Vector2( 0, 49 )
+modulesData = [ {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DEmitOptionsModule",
+"lifetimeMode": 1,
+"maxLifetime": 6.0,
+"maxRotation": 0.0,
+"maxSize": 2.0,
+"maxSpeed": 512.0,
+"minLifetime": 1.0,
+"minRotation": 0.0,
+"minSize": 1.0,
+"minSpeed": 16.0,
+"rotationMode": 0,
+"sizeMode": 1,
+"speedMode": 1,
+"startColor": Color( 1, 0.376471, 0.376471, 1 )
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DEmitRateModule",
+"rate": 32.0
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DColorOverLife",
+"gradient": SubResource( 10 )
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DSizeOverLifeModule",
+"curve": SubResource( 11 ),
+"sizeMultiplier": 2.0
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DCollisionModule",
+"bounciness": 0.5,
+"margin": 0.08,
+"sizeScale": 1.0
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DUpdateModule"
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DDrawBatchModule",
+"material": null,
+"mesh": null,
+"normalMap": null,
+"tex": null
+} ]
+emitOnStart = true
+onEditorDrawFps = 60
+maxParticles = 512
+
+[node name="Spr2" type="Sprite" parent="."]
+position = Vector2( 196.778, 133.684 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+
+[node name="ParticleSystem2D" type="Node2D" parent="Spr2"]
+material = SubResource( 2 )
+script = ExtResource( 1 )
+seed = 668807782
+emitting = true
+gravity = Vector2( 0, 49 )
+modulesData = [ {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DEmitOptionsModule",
+"lifetimeMode": 1,
+"maxLifetime": 6.0,
+"maxRotation": 0.0,
+"maxSize": 2.0,
+"maxSpeed": 512.0,
+"minLifetime": 1.0,
+"minRotation": 0.0,
+"minSize": 1.0,
+"minSpeed": 16.0,
+"rotationMode": 0,
+"sizeMode": 1,
+"speedMode": 1,
+"startColor": Color( 0.341176, 1, 0.431373, 1 )
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DEmitRateModule",
+"rate": 32.0
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DColorOverLife",
+"gradient": SubResource( 3 )
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DSizeOverLifeModule",
+"curve": SubResource( 4 ),
+"sizeMultiplier": 2.0
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DCollisionModule",
+"bounciness": 0.5,
+"margin": 0.08,
+"sizeScale": 1.0
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DUpdateModule"
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DDrawBatchModule",
+"material": null,
+"mesh": null,
+"normalMap": null,
+"tex": null
+} ]
+emitOnStart = true
+onEditorDrawFps = 60
+timeScale = 1.25
+maxParticles = 512
+
+[node name="Spr3" type="Sprite" parent="."]
+position = Vector2( 205.464, 129.007 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+
+[node name="ParticleSystem2D" type="Node2D" parent="Spr3"]
+material = SubResource( 2 )
+script = ExtResource( 1 )
+seed = 668807782
+emitting = true
+gravity = Vector2( 0, 49 )
+modulesData = [ {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DEmitOptionsModule",
+"lifetimeMode": 1,
+"maxLifetime": 6.0,
+"maxRotation": 0.0,
+"maxSize": 2.0,
+"maxSpeed": 512.0,
+"minLifetime": 1.0,
+"minRotation": 0.0,
+"minSize": 1.0,
+"minSpeed": 16.0,
+"rotationMode": 0,
+"sizeMode": 1,
+"speedMode": 1,
+"startColor": Color( 0.341176, 0.584314, 1, 1 )
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DEmitRateModule",
+"rate": 32.0
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DColorOverLife",
+"gradient": SubResource( 12 )
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DSizeOverLifeModule",
+"curve": SubResource( 13 ),
+"sizeMultiplier": 2.0
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DCollisionModule",
+"bounciness": 0.5,
+"margin": 0.08,
+"sizeScale": 1.0
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DUpdateModule"
+}, {
+"Type": "ParticleSystem2DPlugin.ParticleSystem2DDrawBatchModule",
+"material": null,
+"mesh": null,
+"normalMap": null,
+"tex": null
+} ]
+emitOnStart = true
+onEditorDrawFps = 60
+timeScale = 1.25
+maxParticles = 512
+
+[node name="Body" type="StaticBody2D" parent="."]
+position = Vector2( 226.832, 187.85 )
+rotation = 0.408608
+
+[node name="Tex" type="TextureRect" parent="Body"]
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Col" type="CollisionShape2D" parent="Body"]
+visible = false
+shape = SubResource( 9 )
+
+[node name="Body2" type="StaticBody2D" parent="."]
+position = Vector2( 260.853, 201.354 )
+rotation = -0.529448
+scale = Vector2( 3, 1 )
+
+[node name="Tex" type="TextureRect" parent="Body2"]
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Col" type="CollisionShape2D" parent="Body2"]
+visible = false
+shape = SubResource( 9 )
