@@ -104,7 +104,6 @@ namespace ParticleSystem2DPlugin
                 _modulesData = value;
             }
         }
-
         [Export]
         public UpdateMode updateMode = UpdateMode.PhysicsProcess;
         [Export]
@@ -206,6 +205,10 @@ namespace ParticleSystem2DPlugin
                 }
             }
 
+            if (!Engine.EditorHint) {
+                emitting |= emitOnStart;
+            }
+
             foreach (ParticleSystem2DModule module in modules)
             {
                 module.particleSystem = this;
@@ -239,16 +242,13 @@ namespace ParticleSystem2DPlugin
 
         public void ReadModulesData()
         {
-            if (Engine.EditorHint || forceModulesSerializationInGame)
+            modules.Clear();
+            foreach (Godot.Collections.Dictionary serialized in modulesData)
             {
-                modules.Clear();
-                foreach (Godot.Collections.Dictionary serialized in modulesData)
-                {
-                    Type t = Type.GetType((string)serialized["Type"]);
-                    ParticleSystem2DModule module = (ParticleSystem2DModule)Activator.CreateInstance(t);
-                    AddModule(module);
-                    module.UnSerializeModule(serialized);
-                }
+                Type t = Type.GetType((string)serialized["Type"]);
+                ParticleSystem2DModule module = (ParticleSystem2DModule)Activator.CreateInstance(t);
+                AddModule(module);
+                module.UnSerializeModule(serialized);
             }
         }
 

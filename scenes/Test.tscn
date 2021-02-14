@@ -45,8 +45,8 @@ _data = [ Vector2( 0, 0 ), 0.0, 0.0285714, 1, 0, Vector2( 0.245739, 0.482639 ), 
 [node name="Test" type="Node2D"]
 
 [node name="Spr1" type="Sprite" parent="."]
-position = Vector2( 198.56, 145.489 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 132.129, 50.4674 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 
 [node name="ParticleSystem2D" type="Node2D" parent="Spr1"]
@@ -79,10 +79,10 @@ modulesData = [ {
 }, {
 "Type": "ParticleSystem2DPlugin.ParticleSystem2DSizeOverLifeModule",
 "curve": SubResource( 11 ),
-"sizeMultiplier": 2.0
+"sizeMultiplier": 4.0
 }, {
 "Type": "ParticleSystem2DPlugin.ParticleSystem2DCollisionModule",
-"bounciness": 0.5,
+"bounciness": 0.4,
 "margin": 0.08,
 "sizeScale": 1.0
 }, {
@@ -95,12 +95,12 @@ modulesData = [ {
 "tex": null
 } ]
 emitOnStart = true
-onEditorDrawFps = 60
+onEditorDrawFps = 20
 maxParticles = 512
 
 [node name="Spr2" type="Sprite" parent="."]
-position = Vector2( 196.778, 133.684 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 130.347, 38.663 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 
 [node name="ParticleSystem2D" type="Node2D" parent="Spr2"]
@@ -133,10 +133,10 @@ modulesData = [ {
 }, {
 "Type": "ParticleSystem2DPlugin.ParticleSystem2DSizeOverLifeModule",
 "curve": SubResource( 4 ),
-"sizeMultiplier": 2.0
+"sizeMultiplier": 4.0
 }, {
 "Type": "ParticleSystem2DPlugin.ParticleSystem2DCollisionModule",
-"bounciness": 0.5,
+"bounciness": 0.4,
 "margin": 0.08,
 "sizeScale": 1.0
 }, {
@@ -149,13 +149,12 @@ modulesData = [ {
 "tex": null
 } ]
 emitOnStart = true
-onEditorDrawFps = 60
-timeScale = 1.25
+onEditorDrawFps = 20
 maxParticles = 512
 
 [node name="Spr3" type="Sprite" parent="."]
-position = Vector2( 205.464, 129.007 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 139.033, 33.9858 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 
 [node name="ParticleSystem2D" type="Node2D" parent="Spr3"]
@@ -188,10 +187,10 @@ modulesData = [ {
 }, {
 "Type": "ParticleSystem2DPlugin.ParticleSystem2DSizeOverLifeModule",
 "curve": SubResource( 13 ),
-"sizeMultiplier": 2.0
+"sizeMultiplier": 4.0
 }, {
 "Type": "ParticleSystem2DPlugin.ParticleSystem2DCollisionModule",
-"bounciness": 0.5,
+"bounciness": 0.4,
 "margin": 0.08,
 "sizeScale": 1.0
 }, {
@@ -204,13 +203,13 @@ modulesData = [ {
 "tex": null
 } ]
 emitOnStart = true
-onEditorDrawFps = 60
-timeScale = 1.25
+onEditorDrawFps = 20
 maxParticles = 512
 
 [node name="Body" type="StaticBody2D" parent="."]
-position = Vector2( 226.832, 187.85 )
+position = Vector2( 201.782, 124.197 )
 rotation = 0.408608
+scale = Vector2( 1.5, 1.5 )
 
 [node name="Tex" type="TextureRect" parent="Body"]
 margin_left = -10.0
@@ -228,9 +227,9 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Body2" type="StaticBody2D" parent="."]
-position = Vector2( 260.853, 201.354 )
+position = Vector2( 283.276, 161.505 )
 rotation = -0.529448
-scale = Vector2( 3, 1 )
+scale = Vector2( 8, 1.5 )
 
 [node name="Tex" type="TextureRect" parent="Body2"]
 margin_left = -10.0
